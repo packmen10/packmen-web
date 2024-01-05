@@ -37,7 +37,7 @@ jobs:
           node-version: 18
 
       - name: Config azd pipelines
-        run: azd pipeline config --provider azdo
+        run: azd auth login
 
       - name: Log in with Azure (Federated Credentials)
         if: ${{ env.AZURE_CLIENT_ID != '' }}
