@@ -62,14 +62,14 @@ jobs:
       - name: Provision Infrastructure
         run: azd provision --no-prompt
         env:
-          AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
-          AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
-          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          AZURE_ENV_NAME: packmen-app-web-services
+          AZURE_LOCATION: South India
+          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
 
       - name: Deploy Application
         run: azd deploy --no-prompt
         env:
-          AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
-          AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
-          AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          AZURE_ENV_NAME: packmen-app-web-services
+          AZURE_LOCATION: South India
+          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
 
