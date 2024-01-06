@@ -36,7 +36,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
 
-      working-directory:  ./packmen-web
+      working-directory:  /home/runner/work/packmen-web
                
     # deploy web app using Azure credentials
     - uses: azure/webapps-deploy@v2
