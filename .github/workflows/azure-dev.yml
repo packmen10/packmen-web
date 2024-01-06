@@ -1,23 +1,73 @@
-name: Azure Web App Deployment
-
 on:
+  workflow_dispatch:
   push:
+    # Run when commits are pushed to mainline branch (main or master)
+    # Set this to the mainline branch you are using
     branches:
       - main
+      - master
+
+# GitHub Actions workflow to deploy to Azure using azd
+# To configure required secrets for connecting to Azure, simply run `azd pipeline config`
+
+# Set up permissions for deploying with secretless Azure federated credentials
+# https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#set-up-azure-login-with-openid-connect-authentication
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
+    env:
+      AZURE_CLIENT_ID: 7caa5763-520d-4b72-9d88-6763804424d2
+      AZURE_TENANT_ID: b42823f1-81be-4c5c-bed8-5fee3e65e30c
+      AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install azd
+        uses: Azure/setup-azd@v0.1.0
+      
+      - name: Install Nodejs
+        uses: actions/setup-node@v3
         with:
-          app-name: my-webapp-name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-<<<<<<< HEAD
-          package: .
-=======
-          package: .
->>>>>>> b364faef8f50b2162700e877823f90c4ae097b17
+          node-version: 18
+
+      - name: Log in with Azure (Federated Credentials)
+        if: ${{ env.AZURE_CLIENT_ID != '' }}
+        run: |
+          azd auth login `
+            --client-id "$Env:AZURE_CLIENT_ID" `
+            --federated-credential-provider "github" `
+            --tenant-id "$Env:AZURE_TENANT_ID"
+        shell: pwsh
+
+      - name: Log in with Azure (Client Credentials)
+        if: ${{ env.AZURE_CREDENTIALS != '' }}
+        run: |
+          $info = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
+          Write-Host "::add-mask::$($info.clientSecret)"
+          azd auth login `
+            --client-id "$($info.clientId)" `
+            --client-secret "$($info.clientSecret)" `
+            --tenant-id "$($info.tenantId)"
+        shell: pwsh
+        env:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Provision Infrastructure
+        run: azd provision --no-prompt
+        env:
+          AZURE_ENV_NAME: packmen-app
+          AZURE_LOCATION: South India
+          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
+
+      - name: Deploy Application
+        run: azd deploy --no-prompt
+        env:
+          AZURE_ENV_NAME: packmen-app
+          AZURE_LOCATION: South India
+          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
