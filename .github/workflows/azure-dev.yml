@@ -2,31 +2,49 @@ name: JavaScript CI
 
 on: [push]
 
+permissions:
+      id-token: write
+      contents: read
+
 env:
   AZURE_WEBAPP_NAME: packmen-app-web-services   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'packmen-web'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '20.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
-    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: Use Node.js ${{ env.NODE_VERSION }}
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@main
+   
+    - uses: azure/login@v1
+      with:
+        client-id: 7caa5763-520d-4b72-9d88-6763804424d2
+        tenant-id: b42823f1-81be-4c5c-bed8-5fee3e65e30c
+        subscription-id: 1b766573-6926-4dc3-97da-67034bcf873f
+        
+    - name: Setup Node ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: npm install, build, and test
+    
+    - name: 'npm install, build, and test'
       run: |
-        # Build and test the project, then
-        # deploy to Azure Web App.
         npm install
         npm run build --if-present
         npm run test --if-present
-    - name: 'Deploy to Azure WebApp'
-      uses: azure/webapps-deploy@v2
-      with: 
+
+      working-directory:  .github/workflows
+               
+    # deploy web app using Azure credentials
+    - uses: azure/webapps-deploy@v2
+      with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
 
