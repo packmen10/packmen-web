@@ -14,10 +14,7 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: my-webapp-name
+          app-name: packmen-app-web-services
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-<<<<<<< HEAD
           package: .
-=======
-          package: .
->>>>>>> b364faef8f50b2162700e877823f90c4ae097b17
+
