@@ -20,9 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
-      AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      AZURE_CLIENT_ID: 7caa5763-520d-4b72-9d88-6763804424d2
+      AZURE_TENANT_ID: b42823f1-81be-4c5c-bed8-5fee3e65e30c
+      AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     steps:
       - name: Checkout
