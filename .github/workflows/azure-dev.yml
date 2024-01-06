@@ -16,4 +16,8 @@ jobs:
         with:
           app-name: my-webapp-name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+<<<<<<< HEAD
           package: .
+=======
+          package: .
+>>>>>>> b364faef8f50b2162700e877823f90c4ae097b17
