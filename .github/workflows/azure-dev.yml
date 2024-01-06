@@ -60,4 +60,4 @@ jobs:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Provision Infrastructure
-        run: azd up
+        run: azd deploy --no-prompt
