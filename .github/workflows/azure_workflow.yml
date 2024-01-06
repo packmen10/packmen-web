@@ -58,7 +58,11 @@ jobs:
         shell: pwsh
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-
+          
+      - name: npm install
+        run: rm -rf node_modules/
+             npm install
+             
       - name: Deploy Application
         run: azd deploy --no-prompt
         env:
