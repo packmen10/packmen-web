@@ -59,13 +59,6 @@ jobs:
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Provision Infrastructure
-        run: azd provision --no-prompt
-        env:
-          AZURE_ENV_NAME: packmen-app-web-service
-          AZURE_LOCATION: centralindia
-          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
-
       - name: Deploy Application
         run: azd deploy --no-prompt
         env:
