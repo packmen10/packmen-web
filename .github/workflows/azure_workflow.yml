@@ -35,6 +35,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          
+      - name: npm install
+        run: rm -rf node_modules/
+             npm install
 
       - name: Log in with Azure (Federated Credentials)
         if: ${{ env.AZURE_CLIENT_ID != '' }}
@@ -59,9 +63,12 @@ jobs:
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
           
-      - name: npm install
-        run: rm -rf node_modules/
-             npm install
+      - name: Provision Infrastructure
+        run: azd provision --no-prompt
+        env:
+          AZURE_ENV_NAME: packmen-app-web-service
+          AZURE_LOCATION: centralindia
+          AZURE_SUBSCRIPTION_ID: 1b766573-6926-4dc3-97da-67034bcf873f
              
       - name: Deploy Application
         run: azd deploy --no-prompt
