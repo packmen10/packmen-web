@@ -25,7 +25,11 @@ jobs:
       - name: npm install, build, and test
         run: 
           rm -rf node_modules/
+          rm -f package-lock.json
+          rm -f yarn.lock
+          npm cache clean --force
           npm install
+          npm i react-scripts
           npm run build 
 
       - name: Zip artifact for deployment
