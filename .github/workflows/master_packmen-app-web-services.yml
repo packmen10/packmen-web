@@ -29,6 +29,7 @@ jobs:
           rm -f yarn.lock
           npm cache clean --force
           npm install
+          npm i react-scripts
           npm run build 
 
       - name: Zip artifact for deployment
