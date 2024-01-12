@@ -1,6 +1,6 @@
 import { Header } from "./components/navigationHeader/Header"
 import{Routes,Route} from "react-router-dom"
-import { Controller } from "./pages/controller"
+import { Controller } from "./pages/Controller"
 import "./styles/index.scss"
 import { Hr } from "./pages/Hr"
 import { Marketing } from "./pages/Marketing"
