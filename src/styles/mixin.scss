@@ -1,0 +1,17 @@
+@mixin flexBox($justify,$align,$direction,$gap){
+    display: flex;
+    justify-content:$justify;
+    align-items:$align;
+    flex-direction:$direction;
+    gap:$gap;
+}
+
+@mixin buttonStyle(){
+    background-color: white;
+    transition: all ease .4s;
+    color: black;
+    &:hover{
+        background-color:$primery;
+        color: white;
+    }
+}

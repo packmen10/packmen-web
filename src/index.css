@@ -1,0 +1,83 @@
+
+@import "node_modules/progress-tracker/src/styles/progress-tracker.scss";
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&family=Onest:wght@300&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
+  font-family: 'Onest', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  font-family: 'Mulish', sans-serif;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3c85b6;
+  border-radius: 5px;
+}
+
+table, th, td {
+  padding: 7px;
+}
+
+input,textarea,select{
+  background-color: rgb(253, 253, 253);
+}
+
+.flex{
+  display: flex;
+}
+
+.column{
+  flex-direction: column;
+}
+.column-rev{
+  flex-direction: column-reverse;
+}
+.row-rev{
+  flex-direction: row-reverse;
+}
+
+.justify-cen{
+  justify-content: center;
+}
+.justify-st{
+  justify-content: start;
+}
+.justify-en{
+  justify-content: end;
+}
+.justify-sa{
+  justify-content: space-around;
+}
+.justify-sb{
+  justify-content: space-between;
+}
+.justify-se{
+  justify-content: space-evenly;
+}
+
+
+.align-cen{
+  align-items: center;
+}
+.align-st{
+  align-items: start;
+}
+.align-end{
+  align-items: end;
+}

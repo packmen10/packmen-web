@@ -1,0 +1,1875 @@
+@import "mixin.scss";
+@import "colors.scss";
+
+.header{ 
+    @include flexBox(center,center,column,3px);   
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+     position:fixed;
+     width: 100%;
+    z-index: 9;
+    .header-titile{
+    background-color: $primery;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    
+
+    ul{
+        @include flexBox(center,center,row,35px);
+        list-style: none;
+        li{
+            .items{
+                height: 100%;
+                cursor: pointer;
+                @include flexBox(space-between,center,column,7px);
+                text-decoration: none;
+                img{
+                    height:45px;
+                    transition: all ease-in-out .3s;
+                }
+                h4{
+                    color: white;
+                }
+            }
+            &:hover .items img{
+                scale: 1.1;
+            }
+        }
+    }    
+}    
+h3{
+        padding: 3px 0;
+        background-color:$primery;
+        width: 100%;
+        text-align: center;
+        color: white
+    }
+}
+
+
+.controller{
+    
+    padding-top:128px;
+    @include flexBox(start,center,column,0);
+
+    .main-body{
+        @include flexBox(space-between,start,row,5px);
+        width: 100%;
+        padding: 0 5px;
+
+
+.left-side-nav{ 
+    
+    max-width: 20vw;   
+             width: 100%;
+            .left-section{
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                 border-radius:5px;
+                 overflow: hidden;
+                 background-color:$fields;
+                 position: fixed;
+                 max-width: 20vw;   
+                 width: 100%;
+            @include flexBox(space-between,start,column,0);
+            button{
+                padding: 13px 0;
+                background-color: $fields;
+                width: 100%;
+                border: none;
+                font-size: 16px;
+                border-bottom: 1px solid rgb(228, 226, 226);
+                &:hover{
+                        background-color:rgb(243, 242, 242);
+                }
+                cursor: pointer;
+                &:last-child{
+                        border-bottom: none;
+                }
+            }
+            ul{
+                li{
+                    cursor: pointer;
+                    text-align: center;
+                    border-bottom: 1px solid ;
+                }
+            }
+        }
+}
+
+        .controller-right-section-createStoreItem{
+            box-shadow: $box-shadow;
+            max-width: 80vw;
+            border-radius: 5px;
+            width: 100%;
+            background-color:$fields;
+            height: fit-content;
+            padding: 7px;
+            .create-item{
+                background: transparent;
+                color: $primery;
+                text-align: center;
+                padding: 8px 0;
+            }
+            .container-input-fields{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 16px;
+                .data-inputfields{
+                    padding: 7px 0;
+                }
+            }
+            .bottm-btns{
+                @include flexBox(center,center,row,5px);
+                padding: 26px 0;
+                button{
+                        padding: 15px 0;
+                        width: 200px;
+                        font-size: 17px;
+                        border: none;
+                        transition: all ease-in-out .2s;
+                        &:hover{
+                            background-color: $hoverLightPrimery;
+                        }
+                        cursor: pointer;
+                        background-color: $lightPrimery;
+                }
+            }
+        }
+
+        .right-side-invoice-controller{
+            max-width: 80vw;
+            width: 100%;
+            border-radius: 5px ;
+            overflow: hidden;
+            @include flexBox(center,start,row,5px);
+            .left-side{
+                max-width: 60vw;
+                width: 100%;
+                background-color: $fields;
+                border-radius: 5px ;
+                overflow: hidden;
+                box-shadow: $box-shadow;
+                
+            }
+            .creating-invoice-section{
+
+                max-width: 20vw;
+                width: 100%;
+
+                .right-side{
+                    box-shadow: $box-shadow;
+                position: fixed;
+                background-color: $fields;
+                border-radius: 5px;
+                max-width: 20vw;
+                width: 100%;
+                @include flexBox(start,start,column,5px);
+                padding: 30px;
+                h3{
+                    background-color: transparent;
+                    color: $primery
+                }
+                .all-input-fields{
+                    display: grid;
+                    grid-template-areas: 
+                    "seller seller"
+                    "invoice_no invoice_date"
+                    " dispathced_through destination";
+                    grid-gap: 4px;
+
+                    grid-template-rows: 1fr 1fr 1fr;
+                    grid-template-columns: 1fr 1fr;
+                  
+
+                    width: 100%;
+
+
+                    .seller{
+                        grid-area:seller;
+                    }
+                    .invoice_date{
+                        grid-area:invoice_date;
+                    }
+                    .invoice_no{
+                        grid-area:invoice_no;
+                    }
+                    .dispathced_through{
+                        grid-area: dispathced_through;
+                    }
+                    .destination{
+                        grid-area: destination;
+                    }
+
+
+
+
+                .input-field{
+                    @include flexBox(start,start,column,5px);
+                    width: 100%;
+                    input,select{
+                        width: 100%;
+                        height: 34px;
+                        font-size: 14px;
+                        border: none;
+                        border-bottom: 1px solid $line-color;
+                        outline: none;
+                    }
+                }
+
+                .select-field{
+                    width: 100%;
+                    .container{
+                        padding: 7px 0 0 0 ;
+                        button{
+                            width: 100%;
+                            padding: 10px 0;
+                            margin-bottom: 5px;
+                            border: none;
+                            background-color: $primery;
+                            color: white;
+                            cursor: pointer;
+                            
+                        }
+                        .select-el{
+                        border: none;
+                        border-bottom: 1px solid $primery;
+                        min-height: 34px;
+                        background-color: white;
+                        width: 100%;
+                        position: relative;
+                        padding: 4px;
+                        .selectedItems{
+                            @include flexBox(start,center,row,3px);
+                            flex-wrap: wrap;
+                            .itemsName{
+                                @include flexBox(space-between,center,row,3px);
+                                background-color: $lightPrimery;
+                                padding: 3px 3px;
+                                border-radius: 2px;
+                                .detailes{
+                                    .quantity,.price{
+                                        @include flexBox(space-between,center,row,0);
+                                        max-width:400px;
+                                        width: 100%;
+                                        padding: 4px 0;
+                                        input{
+                                            height: 30px;
+                                        }
+                                    }
+                                }
+                                button{
+                                    width: 20px;
+                                    height: 20px;
+                                    background-color: $active-none;
+                                    color: black;
+                                    @include flexBox(center,center,row,0);
+                                    border-radius:5px;
+                                    
+                                }
+                            }
+                        }
+                        .search_menu{
+                            position: absolute;
+                            top: 0;
+                            right: 20vw;
+                            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                            background-color: $fields;
+                            padding: 5px 0;
+                            input{
+                                width: 100%;
+                                height: 36px;
+                                z-index: 4;
+
+                            }
+
+                            ul{
+                                list-style: none;
+                                @include flexBox(none,none,column,0);
+                                min-width: 250px;
+                                li{
+                                    padding: 6px 3px;
+                                 &:hover{
+                                     background-color: $lightPrimery;
+                                 }
+                                 border-bottom: 1px solid $text-border;
+                                 &:last-child{
+                                     border: none;
+                                 }
+                                }
+                                max-height: 180px;
+                                overflow: auto;
+                             }
+                        }
+                       }
+                    }
+
+                }
+                }
+
+                .invoice-btns{
+                    @include flexBox(center,center,row,3px);
+                    width: 100%;
+                    height: 100%;
+                    padding: 9px 0;
+                   
+                    button{
+                         transition: all ease-in-out .3s;
+                        padding: 10px 0;
+                        width: 200px;
+                        font-size: 17px;
+                        &:hover{
+                            background-color: #5b98c0;
+                            color: white;
+                        }
+                        text-transform: none;
+
+                    }
+                }
+            }
+            }
+
+        }
+    }
+
+}
+
+.invoiceDetailes{
+      padding: 6px;
+    padding-bottom: 30px;
+    width: 100%;
+    background-color: $fields;
+
+    position: relative;
+    .go-back{
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+        background-color: $primery;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .description{
+        padding: 5px 0;
+        @include flexBox(center,start,row,15px);
+        p{
+            font-size: 14px;
+        }
+        .sellers,.detailes{
+            h4{
+                text-align: center;
+                width: 100%;
+                color: $primery;
+            }
+
+            border-radius: 10px;
+            background-color:#dddddd;
+            width: 400px;
+            padding: 10px;
+            .labelInput{
+                @include flexBox(start,start,column,0);
+                 width: 100%;
+                input{
+                    width: 100%;
+                    height: 37px;
+                    border: none;
+                    border-bottom:1px solid $primery;
+                    font-size: 15px; 
+                    outline: none;
+                    background-color: rgb(247, 244, 244)
+                }
+            }
+        }
+        .sellers{
+
+            @include flexBox(start,start,column,5px);
+            .labelInput{
+                @include flexBox(start,start,column,0);
+            }
+        }
+        .select-sellers{
+                width: 39%;
+                height: 35px;
+                font-size: 16px;
+                outline: none;
+                background-color: rgb(247, 244, 244);
+                border: none;
+                border-bottom:1px solid $primery; 
+        }
+        .detailes{
+            @include flexBox(start,start,column,5px);
+        }
+
+        .invoice-delete-update{
+            @include flexBox(start,start,column,5px);
+            .update-invoice,.delete-invoice{
+            width: 100%;
+            padding: 10px 10px;
+            background: $primery;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            }
+        }
+    }
+
+    .bottomside{
+        @include flexBox(start,start,column,5px);
+        h3{
+            background: none;
+            color: $primery;
+        }
+        .add-new-items{
+            width: 100%;
+            @include flexBox(start,center,column,5px);
+            position: relative;
+            input{
+                width: 100%;        
+                max-width: 500px;
+                height: 35px;
+                outline: none;
+                border: 1px solid $primery;
+                border-radius: 10px;
+                padding: 0 5px;
+                font-size: 14px;
+            }
+            ul{
+                top: 40px;
+                position: absolute;
+                max-width: 500px;
+                width: 100%;
+                background-color: #faf7f7;
+                border-radius: 5px;
+                overflow: hidden;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                li{
+                    width: 100%;
+                    list-style: none;
+                    padding: 5px 10px;
+                    transition: all ease-in-out .3s;
+                    &:hover{
+                        background-color: $lightPrimery;
+                        padding: 7px 10px;
+                        padding-left: 15px;
+                        
+                    }
+                }
+            }
+        }
+        .items{
+            width: 100%;
+            .custom-table{
+                display: grid;
+                grid-template-columns: repeat(7,1fr);
+                grid-gap: 3px;
+                .head-el{
+                    border-radius: 3px;
+                    background-color: $primery;
+                    p{
+                                    padding: 7px 4px;
+                        color: white;
+                    }
+                }
+                .body-el{
+                    
+                    p{
+                        padding: 7px 4px;
+                    }
+                    input{
+                        padding: 7px 4px;
+                        border: none;
+                        outline: none;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+            .finish-btn{
+                @include flexBox(center,center,column,5px);
+                padding: 10px 0;
+                button{
+                    padding: 6px 10px;
+                    background: #347dac;
+                    color: white;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 15px;
+                    cursor: pointer;
+                 &[disabled]{
+                    background-color: $lightPrimery;
+                 }   
+                }
+                  
+            }
+        }
+
+    }
+}
+
+.add-items-in-invoice{
+    min-height: 80vh;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 7px;
+            button{
+                height: 30px;
+                width: 30px;
+                font-size: 30px;
+                background-color: #347dac;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    .addItems{
+        position: relative;
+        width: 100%;
+        @include flexBox(start,center,column,15px);
+        input{
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid $primery;
+            outline: none;
+            font-size: 16px;
+        }
+        #slecting-items{
+            position: absolute;
+            top: 40px;
+            z-index: 99;
+            background-color: rgb(217 217 217);
+            width: 100%;
+            li{
+                padding: 5px;
+                list-style: none;
+                &:hover{
+                    background-color:rgb(241, 232, 232);
+                }
+            }
+        }
+        .selectedItems{
+            ul{
+                list-style: none;
+                @include flexBox(start,center,column,10px);
+                li{
+                    background-color: $lightPrimery;
+                    border-radius: 3px;
+                    padding: 10px 4px;
+                    .selected-list{
+                        @include flexBox(space-evenly,start,row,5px);
+                        input{
+                            height: 30px;
+                            border: none;
+                            border-bottom: 1px solid $primery;
+                            outline: none;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .save-Item{
+        padding: 10px 40px;
+        font-size: 14px;
+        width: auto;
+        height: auto;
+    }
+}
+
+.normel_cmp{
+    button{
+        @include buttonStyle()
+    }
+}
+
+.primecontainer-work-nextedrycl{
+    button{
+        background-color: white;
+        transition: all ease .4s;
+        color: black;
+        &:hover{
+            background-color:blue;
+            color: white;
+        }
+    }
+}
+
+.customer-cmp,.sellers,.hr-section{
+    max-width:80vw;
+    width: 100%;
+    @include flexBox(space-between,start,row,6px);
+    .left-section-sellers{
+        max-width:58vw;
+        background-color:$fields;
+        width: 100%;
+        height: 80vh;
+        border-radius: 5px;
+        overflow: hidden;
+        table{
+            width: 100%;
+            thead{
+                tr{
+                    background-color: $table-head;
+                    color: white;
+                    th{
+                        padding: 7px 0;
+                        text-align: start;
+                        &:first-child{
+                            padding-left: 10px;
+                        }
+                        &:last-child{
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    &:hover{
+                        background-color: $table-head-hover;
+                    }
+                    &:nth-child(even){
+                        background-color: $table-head-hover;
+                    }
+                    td{
+                        padding: 7px 0;
+                        text-align: start;
+                        &:first-child{
+                            padding-left: 10px;
+                        }
+                        &:last-child{
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .right-section-create-sellers{
+        h3{
+            background-color: transparent;
+            color:$primery;
+        }
+        max-width: 22vw;
+        width: 100%;
+        .container{
+            max-width: 22vw;
+            width: 100%;
+            background-color: $fields;
+            padding: 5px;
+            border-radius:5px ;
+            position: fixed;
+            @include flexBox(start,start,column,6px);
+            .label-input{
+                @include flexBox(start,start,column,2px);
+                width: 100%;
+                input{
+                    height: 34px;
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid $primery;
+                }
+            }
+            .btns-sellers{
+                width: 100%;
+                @include flexBox(center,center,row,6px);
+                button{
+                    width: 90px;
+                    padding: 10px 0;
+                    border: none;
+                    background-color: $primery;
+                    border-radius: 5px ;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+
+            button{
+                width: 90px;
+                padding: 10px 0;
+                border: none;
+                background-color: $primery;
+                border-radius: 5px ;
+                color: white;
+                cursor: pointer;
+                align-self: center;
+            }
+        }
+    }
+}
+
+.allitems{
+    background-color:$fields;
+    gap: 5px;
+    max-width: 80vw;
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    border-radius: 5px;
+    .container-all-items{
+        max-width: 60vw;
+        width: 100%;
+    }
+    .rightCreateSection{
+        box-shadow: $box-shadow;
+        position: fixed;
+        padding: 30px;
+        max-width: 20vw;
+        gap: 9px;
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        .btns{
+            button{
+                transition:  all ease-in-out .4s;
+                background-color: white;
+                &:hover{
+                    background-color: $primery;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.editoption{
+    @include flexBox(center,center,column,0);
+    width: 100%;
+    position: relative;
+    padding: 5px;
+    background-color: $fields;
+    .delte-option, .edit-option{
+        background-color: $primery;
+        color: white;
+        border-radius: 5px;
+        width: 90px;
+        border: none;
+        padding: 8px 15px;
+        &:hover{
+            background-color: $primery;
+        }
+    }
+    .detailes{
+        width: 100%;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-areas: "nam nam cat cat sub_cat sub_cat"
+                            "hsn part ct_p unit tax min_s"
+                            "des des  loc loc sl_no sl_no";
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        .name{
+            grid-area:nam
+        }
+        .sub_category{
+            grid-area:sub_cat
+        }
+        .category{
+            grid-area:cat;
+        }
+        .hsn_code{
+            grid-area: hsn
+        }
+        .part_no{
+            grid-area: part
+        }
+        .description{
+            grid-area: des
+        }
+        .cost_price{
+            grid-area:ct_p
+        }
+        .unit{
+            grid-area: unit
+        }
+        .minimum_stock{
+            grid-area:min_s
+        }
+        .location{
+            grid-area: loc
+        }
+        .tax{
+            grid-area: tax
+        }
+        .sl_no{
+            grid-area: sl_no
+        }
+
+        
+        .input-label-field{
+            @include flexBox(center,start,column,0);
+            input{
+                width: 100%;
+                height: 35px;
+                border: none;
+                border-bottom: 1px solid $primery;
+                outline: none;
+            }
+        }
+    }
+    .options-btns{
+        @include flexBox(center,start,row,3px);
+        padding: 20px 0;
+        button{
+            transition: all ease .4s;
+            background-color: white;
+            color: black;
+            &:hover{
+                color: white;
+                background-color: $primery;
+            }
+        }
+    }
+}
+.items-edit-section{
+    max-width: 80vw;
+    width: 100%;
+    min-height: 80vh;
+    background-color: $fields;
+    padding: 5px;
+    @include flexBox(start,start,row,5px);
+    .back-btn{
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+        background-color: #347dac;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn-save{
+        background-color: #347dac;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+    .edit-card{
+        background-color: rgb(219 219 219);
+        border-radius: 5px;
+        padding: 15px;
+        width: 30vw;
+        @include flexBox(center,space-between,column,10px);
+        .labelAndInput{
+            @include flexBox(space-between,center,row,10px);
+            input{
+                width: 80%;
+                height: 35px;
+                border: none;
+                border-bottom: 1px solid $primery;
+                outline: none;
+            }
+        }
+    }
+}
+.production-main{
+    padding-top: 128px;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    .back-btn{
+      
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    background-color: #347dac;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    }
+    @include flexBox(start,start,row,5px);
+    .production-btn-container{
+           
+            max-width: 20vw;
+            width: 100%;
+        .production-left-side{
+             box-shadow: $box-shadow;
+            max-width: 20vw;
+            width: 100%;
+            position: fixed;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: $fields;
+            @include flexBox(start,center,column,0);
+            .btnel{
+                    width: 100%; 
+                    border: none;
+                    padding: 13px 0;
+                    font-size: 1rem;
+                    border-bottom: 1px solid rgb(228, 226, 226);
+                    &:last-child{
+                        border: none;
+                    }
+            }
+        }
+    }
+
+    .bom-component-container{
+        max-width: 58vw;
+        height: 400px;
+        width: 100%;
+        background-color: $fields;
+        border-radius: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .bom-right-side-create-container{
+        max-width: 22vw;
+        width: 100%;
+       
+            .bom-right-side-create{
+                border-radius: 5px;
+                background-color:$fields;
+                position: fixed;
+                max-width: 22vw;
+                width: 100%;
+                padding: 5px;
+                .inputFields{
+                    width: 100%;
+                    .inputField{
+                        width: 100%;
+                        @include flexBox(start,start,column,3px);
+                        input{
+                            width: 100%;
+                            height: 35px;
+                            border: none;
+                            border-bottom:1px solid $primery;
+                            outline: none;
+                        }
+                    }
+                }
+                .btn-fields{
+                    padding: 10px 0;
+                    @include flexBox(center,center,row,3px);
+                    button{
+                        background-color: $primery;
+                        color: white;
+                        outline: none;
+                        cursor: pointer;
+                        width: 90px;
+                        border-radius: 5px;
+                        padding: 8px 0;
+                        border: none;
+                    }
+                }
+
+            }
+    }
+} 
+
+.work-order{
+    max-width: 80vw;
+    height: 300px;
+    width: 100%;
+        @include flexBox(space-between,start,row,5px);
+
+    .table-section{
+        width: 100%;
+        max-width: 60vw;
+    }
+
+    .work-order-create-field{
+        width: 100%;
+        max-width: 20vw;
+        
+        .work-order-create-container{
+            padding: 30px;
+            box-shadow: $box-shadow;
+            @include flexBox(center,center,column,10px);
+            position: fixed;
+            width: 100%;
+            max-width: 20vw;
+        }
+    }
+}
+
+.issue-not{
+    padding: 0 5px 0 0;
+    max-width: 80vw;
+    width: 100%;
+    @include flexBox(center,start,row,5px);
+
+    .table-component{
+        max-width: 70vw;
+        width: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+      background-color: $fields;
+    }
+
+    .create-section{
+        max-width: 20vw;
+        width: 100%;
+        .create-section-field{
+            box-shadow:$box-shadow;
+            border-radius: 5px;
+            overflow: hidden;
+            h4{
+                width: 100%;
+                text-align: center;
+                color: $primery;
+                padding: 4px 0;
+            }
+            background: $fields;
+            padding: 30px;
+            position: fixed;
+            max-width: 20vw;
+           
+            width: 100%;
+                @include flexBox(center,start,column,5px);
+                .input-label-fields{
+                    width: 100%;
+                    @include flexBox(center,start,column,2px);
+                    input{
+                        width: 100%;
+                        height: 35px;
+                        border: none;
+                        border-bottom: 1px solid $line-color;
+                        outline: none;
+                    }
+                    position: relative;
+                    ul{
+                        max-width: 600px;
+                        overflow: auto;
+                        width: 100%;
+                        position: absolute;
+                        z-index: 1;
+                        top: 56px;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        li{
+                            transition: all ease-in-out .4s;
+                            list-style: none;
+                            padding: 8px 3px;
+                            background-color: rgb(255, 255, 255);
+                            cursor: pointer;
+                            &:hover{
+                                background-color: rgb(247, 244, 244);
+                                padding: 8px 3px;
+                                padding-left: 10px;
+                            }
+                            width: 100%;
+                        }
+                    }
+                }
+        }
+        .btn-section{
+            width: 100%;
+            @include flexBox(center,center,row,5px);
+            button{
+                transition: all ease-in-out .4s;
+                background-color: white;
+                color: black;
+                &:hover{
+                    background-color: #347dac;
+                    color: white;
+                }
+                width: 100%;
+                height: 50px;
+
+                border-radius: 5px;
+                border: none;
+                padding: 8px 15px;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+.issue-not-detaile{
+    max-width: 80vw;
+    min-height: 80vh;
+    background-color:$fields;
+    padding-top: 5px;
+    border-radius:5px;
+    width: 100%;
+    .top-section{
+        position: relative;
+        .back-btn{
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            font-size: 30px;
+            background-color:#347dac;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            left: 5px;
+        }
+        @include flexBox(center,start,row,5px);
+        .employee-details,
+        .work-order-details{
+            border-radius: 5px;
+            overflow: hidden;
+            padding:10px;
+            max-width: 500px;
+            width: 100%;
+            background-color: #dddddd;
+            h4{
+                width: 100%;
+                text-align: center;
+                color: $primery;
+            }
+            
+            @include flexBox(center,start,column,10px);
+            .input-label-section{
+                width: 100%;
+                @include flexBox(center,start,column,5px);
+                input{
+                    width: 100%;
+                    height: 35px;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid $primery;
+                    font-size: 15px;
+                }
+
+           }                
+               select{
+                    width: 100%;
+                    height: 35px;
+                    font-size: 15px;
+                }
+        }
+
+        .btn-section{
+            @include flexBox(center,start,column,5px);
+            button{
+                width: 100%;
+                background-color: #347dac;
+                color: white;
+                border: none;
+                outline: none;
+                height: 40px;
+                padding: 0 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                &:hover{
+                    background-color:#2378b1 ;
+                }
+            }
+        }
+
+    }
+    .bottom-section{
+        width: 100%;
+        padding:5px ;
+        @include flexBox(start,center,column,5px);
+        position: relative;
+        h3{
+            width: 100%;
+            text-align: start;
+            color: $primery;
+        }
+        .search-field{
+            width: 100%;
+            max-width: 500px;
+            height: 35px;
+            outline: none;
+            border: 1px solid #347dac;
+            border-radius: 10px;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+        ul{
+            position: absolute;
+            margin-top: -4px;
+            top: 75px;
+            width: 100%;
+            max-width: 500px;
+            list-style: none;
+            background-color: #faf7f7;
+            border-radius: 5px;
+            max-height: 600px;
+            overflow: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+           li{
+             padding: 0 4px;
+            transition: all ease-in-out .3s;
+            padding: 3px;
+                &:hover{
+                    background-color: $lightPrimery;
+                    padding:8px 6px;
+                }
+                &:first-child{
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+                &:last-child{
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+           }
+        }
+        .table-section{
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+
+            grid-gap: 3px;
+            height: fit-content;
+            .issue-not-table-header{
+                height: 30px;
+               
+                border-radius: 3px;
+                @include flexBox(start,center,row,0);
+                padding-left: 3px;
+                background-color: $primery;
+                p{
+                    color: white;
+                }
+            }
+            .issue-not-table-body{
+                @include flexBox(start,center,row,0);
+                height: 30px;
+                
+                input{
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                }
+         
+            }
+            .issue-not-table-status-body{
+                @include flexBox(start,center,row,0);
+                p{
+                    width:100%;
+                    text-align: center;
+                }
+            }
+        }
+        .btn-section{
+            @include flexBox(start,center,row,0);
+            padding: 20px 0;
+            max-width: 100%;
+            button{
+                padding: 10px 10px;
+                background: #347dac;
+                color: white;
+                border-radius: 5px;
+                border: none;
+                font-size: 15px;
+                cursor: pointer;
+                &[disabled]{
+                    background-color: $lightPrimery;
+                }
+            }
+        }
+    }
+}
+
+
+.disable{
+    display: none;
+}
+
+.enable{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bottom-section{
+    width: 100%;
+    padding:5px ;
+    @include flexBox(start,center,column,5px);
+    position: relative;
+    h3{
+        width: 100%;
+        text-align: start;
+        color: $primery;
+    }
+    .search-field{
+        width: 100%;
+        max-width: 500px;
+        height: 35px;
+        outline: none;
+        border: 1px solid #347dac;
+        border-radius: 10px;
+        padding: 0 5px;
+        font-size: 14px;
+    }
+    ul{
+        position: absolute;
+        margin-top: -4px;
+        top: 75px;
+        width: 100%;
+        max-width: 500px;
+        list-style: none;
+        background-color: #faf7f7;
+        border-radius: 5px;
+        max-height: 600px;
+        overflow: auto;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       li{
+         padding: 0 4px;
+        transition: all ease-in-out .3s;
+        padding: 3px;
+            &:hover{
+                background-color: $lightPrimery;
+                padding:8px 6px;
+            }
+            &:first-child{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            &:last-child{
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+       }
+    }
+    .table-section{
+        min-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+
+        grid-gap: 3px;
+        height: fit-content;
+        .issue-not-table-header{
+            height: 30px;
+            border-radius: 3px;
+            @include flexBox(start,center,row,0);
+            padding-left: 3px;
+            background-color: $primery;
+            p{
+                color: white;
+            }
+        }
+        .issue-not-table-body{
+            @include flexBox(start,center,row,0);
+            height: 30px;
+            
+            input{
+                height: 100%;
+                width: 100%;
+                border: none;
+                outline: none;
+            }
+     
+        }
+        .issue-not-table-status-body{
+            @include flexBox(start,center,row,0);
+            p{
+                width:100%;
+                text-align: center;
+            }
+        }
+    }
+    .btn-section{
+        @include flexBox(start,center,row,0);
+        padding: 20px 0;
+        width: 100%;
+        button{
+            padding: 10px 10px;
+            background: #347dac;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            &[disabled]{
+                background-color: $lightPrimery;
+            }
+        }
+    }
+}
+
+.right-section-container{
+    
+    .create-section{
+        button{
+            transition: all ease-in-out .4s;
+            background-color: white;
+            color: black;
+            &:hover{
+                background-color: $primery;
+                color: white;
+            }
+        }
+    }
+}
+
+.hr-btn-section{
+    max-width:20vw;
+    width: 100%;
+    .left-section-hr{
+        position: fixed;
+        max-width:20vw;
+        width: 100%;
+    }
+}
+
+
+.bom{
+    max-width: 80vw;
+    width: 100%;
+    .left-section-bom{
+        padding-bottom: 60px;
+        max-width: 60vw;
+        width: 100%;
+    }
+    .right-create-section-bom{
+        max-width: 20vw;
+        width: 100%;
+        .create-container{
+            box-shadow: $box-shadow;
+            h3{
+                padding:  10px  0;
+                color: $primery;
+            }
+            padding: 30px;
+            max-width: 20vw;
+            gap: 6px;
+            width: 100%;
+            position: fixed;
+            .btns{
+                display: flex;
+                flex-direction: row;
+                padding-top: 10px;
+                gap: 10px;
+               
+                button{
+                    transition: all ease-in-out .4s;
+                    width: 100%;
+                    height: 50px;
+                    text-transform: none;
+                    font-size: 17px;
+                    &:hover{
+                        background-color: $primery;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bom_material_specification{
+    .botom_section{
+        ul{
+            li{
+                p{
+                    transition: transform ease-in-out .4s;
+                }
+                &:hover{
+                    cursor: pointer;
+                    background-color: #5b98c0;
+                    p{
+                        transform:translateX(12px);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.mir{
+    display: flex;
+    gap: 5px;
+    .mir-table-section{
+        .mir_table_section{
+            width: 100%;
+            border-radius: 5px;
+            table{
+                padding: 0;
+                thead{
+                    tr{
+                        td{
+                            background-color: $primery;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+
+                    }
+                }
+            }
+            button{
+                background-color: white;
+                transition:all ease .4s;
+                &:hover{
+                    background-color: $primery;
+                    color:white;
+                }
+            }
+        }
+    }
+    .mir_create_section{
+        max-width: 20vw;
+        width: 100%;
+        .mir_create_section_container{
+            box-shadow: $box-shadow;
+            max-width: 20vw;
+            width: 100%;
+            position: fixed;
+            padding: 30px;
+            h3{
+                color: $primery;
+                width: 100%;
+                text-align: start;
+                padding: 5px 0;
+            }
+            @include flexBox(center ,center,column,10px);
+            .mir_crete_btn{
+                width: 100%;
+                 @include flexBox(center ,center,row,5px);
+                button{ 
+                    &:hover{
+                      background-color: $primery;
+                      color: white;
+                    }
+                    transition: all ease-in-out .4s;
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+        }
+        .mir_btn{
+            background-color: $primery;
+            color: white;
+        }
+    }
+}
+
+.mir-items-create-section{
+    width: 100%;
+    @include flexBox(center,center,column,5px);
+    .mir-items-create-section-container,.out-source-items-create-section-container{
+        border: 1px solid #eaf1f5;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 5px;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .out-source-items-create-section-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .mir-create-btns{
+        width: 100%;
+        @include flexBox(center,center,row,5px);
+        button{
+            margin-top: 5px;
+            background-color: white;
+            text-transform: none;
+            width: 50px;
+            transition: all ease .4s;
+            &:hover{
+                background-color: $primery;
+                color:white;
+            }
+        }
+    }
+}
+
+
+.machining_log{
+    gap: 5px;
+    .machining_log_left{
+
+    }
+    .machining_log_right{
+        
+        .machining_log_right_create{
+            h3{
+                color: $primery;
+            }
+            .part_no_search{
+                position: relative;
+                .closs_btn{
+                    width: 20px;
+                    height: 20px;
+                    @include flexBox(center,center,row,0);
+                    position: absolute;
+                    top: 18px;
+                    right: 3px;
+                    border: none;
+                    outline: none;
+
+                }
+                ul{
+                    position: absolute;
+                    top: 50px;
+                    list-style: none;
+                    background-color: white;
+                    width: 100%;
+                    z-index: 999;
+                    box-shadow: $box-shadow;
+                    li{
+                        padding: 7px 2px;
+                        transition: all ease-in-out .4s;
+                        cursor: pointer;
+                        &:hover{
+                            transform: translateX(5px);
+                        }
+                    }
+                }
+            }
+            
+            gap: 5px;
+            border-radius: 5px;
+            box-shadow: $box-shadow;
+            position: fixed;
+            width: 100%;
+            max-width: 20vw;
+            padding: 30px;
+            .machine_log_btns{
+                width: 100%;
+                @include flexBox(center,center,row,5px);
+                padding-top: 20px;
+                button{
+                    transition: all ease-in-out .4s;
+                    width: 100%;
+                    height: 50px;
+                    &:hover{
+                        background-color: $primery;
+                        color:white;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+.singlemachinig_log{
+    display: grid;
+    grid-template-areas: "date part_no start_time end_time machine__type operator dur quan";
+                          
+                    
+.part_no{
+    grid-area:part_no;
+}
+.machine_type{
+    grid-area: machine__type;
+}
+.operator{
+    grid-area:operator;
+}
+.date{
+    grid-area:date;
+}
+.start_time{
+    grid-area:start_time;
+}
+.end_time{
+    grid-area:end_time;
+}
+.duration{
+    grid-area:dur;
+}
+.quantity{
+    grid-area: quan;
+}
+    grid-gap: 10px;
+
+}
+
+.jobCard_create{
+    h3{
+        color: $primery;
+        padding: 15px 0;
+    }
+    position: fixed;
+    width: 100%;
+    max-width: 20vw;
+    padding: 30px;
+    box-shadow: $box-shadow;
+    .job_card_btns{
+        @include flexBox(center,center,row,5px);
+        padding-top:30px;
+        button{
+            background-color: white;
+            color: black;
+            text-transform: none;
+            &:hover{
+                background-color: $primery;
+                color:white
+               
+            }
+        }
+    }
+}
+
+.single_job_card_btns{
+    button{
+        background-color: white;
+        color:black;
+        text-transform: none;
+        &:hover{
+            background-color: $primery;
+            color:white;   
+        }
+    }
+}
+
+.SingleJobCard{
+    display: grid;
+    grid-template-areas: "job_name job_done_by date start_time end_time dur";                
+    grid-gap: 10px;
+    .job_name{
+        grid-area:job_name ;
+    }
+    .job_done_by{
+        grid-area: job_done_by;
+    }
+    .date{
+        grid-area: date;
+    }
+    .start_time{
+        grid-area: start_time;
+    }
+    .end_time{
+        grid-area: end_time;
+    }
+    .duration{
+        grid-area: dur;
+    }
+}
+
+.OutSourcing{
+    max-width: 80vw;
+    width: 100%;
+    .out-sourcing-left-section{
+        max-width: 60vw;
+        width: 100%;
+    }
+    .out-sourcing-right-section{
+        max-width: 20vw;
+        width: 100%;
+        .out-sorce-create{
+            h3{
+                color: $primery;
+            }
+            padding: 30px;
+            gap: 5px;
+            box-shadow:$box-shadow;
+            border-radius: 5px;
+            .out-source-btns{
+                padding-top: 30px;
+                button{
+                    width: 100%;
+                    height: 50px;
+                    text-transform: none;
+                }
+            }
+
+        }
+    }
+}
+
+.singleOutSource{
+    display: grid;
+    grid-template-areas:"supp date "
+                        "btn btn ";
+    .supplier{
+        grid-area: supp;
+    }
+    .date{
+        grid-area: date;
+    }
+    
+   grid-gap: 5px;
+    .btn{
+        grid-area: btn;
+        width:100%;
+        @include flexBox(start,center,row,5px);
+        button{
+            background-color: $primery;
+            color: white;
+            text-transform: none;
+        }
+
+    }
+}
+
+.single_machinge_log{
+    button{
+        background-color: white;
+        transition: all ease .4s;
+        color: black;
+        &:hover{
+            background-color: $primery;
+            color: white;
+        }
+    }
+}
+
+
+.primerycl{
+    background-color: white;
+    transition: all ease .4s;
+    color: black;
+    &:hover{
+        
+        color: $primery;
+
+    }
+}
+
+
+.BomEditSection{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+    padding: 25px 0;
+}
+
+.bom-update-btn{
+    button{
+        text-transform: none;
+        background-color: white;
+        transition: all ease .4s;
+        &:hover{
+            background-color: $primery;
+            color: white;
+        }
+    }
+}
+
+.mir_items_detailes{
+        width: 100%;
+    max-width: 41vw;
+.po_table{
+    width: 100%;
+    thead{
+        tr{
+            th{
+                background-color: $primery;
+                color: white;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+}
+
